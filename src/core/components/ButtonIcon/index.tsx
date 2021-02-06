@@ -3,9 +3,11 @@ import './styles.scss';
 
 
 const ButtonIcon = () => (
-      <button className="btn-text btn-content ">
-        Começar
-      </button>  
+
+  <button className="btn-text btn-content ">
+    Começar
+  </button>
+
 );
 
 export default ButtonIcon;

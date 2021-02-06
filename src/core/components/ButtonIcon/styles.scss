@@ -2,9 +2,9 @@
 
     position: absolute;
     height: 24px;
-    margin-left: 138px;
-    margin-right: 1237px;
-    margin-top: calc(50% - 24px/2 + 165px);    
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-top: 8px;    
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -17,10 +17,13 @@
 }
 
 .btn-content {
+    
     width: 101px;
     height: 40px;
     margin-left: 120px;
-    margin-top: 595px; 
+    margin-top: 48px;
     background: #1890FF;
     border-radius: 4px;
-}
+    
+}  
+

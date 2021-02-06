@@ -6,6 +6,7 @@
     margin-right: -7.8px;
     margin-top: -8px;
     z-index: 2;
+ 
 }
 
 .nav-log-text {
@@ -28,4 +29,7 @@
 a:link,a:hover {
     text-decoration: none;
     color: #FFF ;   
+}
+::-webkit-scrollbar {
+    width: 0px;
 }
