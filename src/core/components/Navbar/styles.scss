@@ -3,10 +3,14 @@
     height: 60px;
     background: #1890FF;
     margin-left: -7.8px;
-    margin-right: -7.8px;
     margin-top: -8px;
-    z-index: 2;
- 
+    width: 100vw;
+
+    a:link,a:hover {
+        text-decoration: none;
+        color: #FFF ;   
+    }
+     
 }
 
 .nav-log-text {
@@ -26,10 +30,3 @@
     
 }
 
-a:link,a:hover {
-    text-decoration: none;
-    color: #FFF ;   
-}
-::-webkit-scrollbar {
-    width: 0px;
-}

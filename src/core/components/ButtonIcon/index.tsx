@@ -1,13 +1,13 @@
 import React from 'react';
 import './styles.scss';
 
-
-const ButtonIcon = () => (
-
-  <button className="btn-text btn-content ">
-    Começar
+type Props = {
+  text: string;
+}
+const ButtonIcon = ({ text }: Props) => (
+  <button className="btn-icon  btn-text   button-cursor">
+    {text}
   </button>
-
 );
 
 export default ButtonIcon;
