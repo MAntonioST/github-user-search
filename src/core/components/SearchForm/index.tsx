@@ -1,13 +1,11 @@
 import React from 'react';
 import './styles.scss';
 
-type Props = {
-  text: string;
-}
-const InputForm = () => (
+
+const SearchForm = () => (
   <div className="data-input">
 
   </div>
 );
 
-export default InputForm;
+export default SearchForm;

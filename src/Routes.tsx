@@ -5,7 +5,7 @@ import {
     Route
   } from "react-router-dom";
 import Navbar from './core/components/Navbar';
-import Form from './Pages/Form';
+import FormContainer from './Pages/components/FormContainer';
 import Home from './Pages/Home';
 
 const Routes = () => (
@@ -16,7 +16,7 @@ const Routes = () => (
           <Home />
         </Route>
         <Route path="/search">
-          <Form />
+          <FormContainer />
         </Route>
     </Switch>
    </BrowserRouter>

@@ -1,30 +1,36 @@
 import React from 'react';
 import ButtonIcon from '../../../core/components/ButtonIcon';
-import InputForm from '../../../core/components/InputForm';
+import SearchForm from '../../../core/components/SearchForm';
+import { User } from '../../../core/types/User';
 import './styles.scss';
 
-const UsersGithub = () => {
+type Props = {
+    user?:User;
+}
+
+const SearchUser = ( { user }: Props) => {
+    console.log(user);
     return (
         <div className="users-container-main">
             <div className="img-left">
-            
+             <img src={user?.avatar_url} alt={user?.name} />
             </div>
             <div className="btn-icon-foto">
                 <ButtonIcon text="Ver perfil" />
             </div>
             <div className="information-left">
                 <div className="info-in-left">
-                    Repositórios públicos:
+                    Repositórios públicos: {user?.public_repos}
               </div>
             </div>
             <div className="information-center">
                 <div className="info-in-center">
-                    Seguidores:
+                    Seguidores: {user?.followers}
             </div>
             </div>
             <div className="information-right">
                 <div className="info-in-right">
-                    Seguindo:
+                    Seguindo: {user?.following}
             </div>
             </div>
             <div className="information-container">
@@ -32,20 +38,20 @@ const UsersGithub = () => {
                     Informações
             </div>
                 <div className="input-form-in">
-                    <InputForm />
+                    <SearchForm />
                 </div>
                 <div className="input-form-in-1">
-                    <InputForm />
+                    <SearchForm />
                 </div>
                 <div className="input-form-in-2">
-                    <InputForm />
+                     <SearchForm />
                 </div>
                 <div className="input-form-in-3">
-                    <InputForm />
+                     <SearchForm />
                 </div>
             </div>
         </div>
     );
 }
 
-export default UsersGithub;
+export default SearchUser;
