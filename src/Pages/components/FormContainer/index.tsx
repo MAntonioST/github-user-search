@@ -4,11 +4,12 @@ import { makeRequest } from '../../../core/utilis/request';
 import './styles.scss';
 import SearchUser from '../SearchUser';
 import { User } from '../../../core/types/User';
+import ButtonIcon from '../../../core/components/ButtonIcon';
 
 
 
 type UserState = {
-    login:'';
+    login:string;
     
   }
 
@@ -26,18 +27,18 @@ type UserState = {
         const login = event.target.name;
         const value = event.target.value;
         setFormData(data => ({ ...data, [login]: value }));
-      }
+    }
+  
    
    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
     const payload = {
      login:formData.login
     }
-   
     makeRequest({ url: `/users/${payload.login}`})
        .then(response => setUser(response.data));
-      
+    
+     setFormData({login:''});
  }
      
     return (
@@ -58,15 +59,15 @@ type UserState = {
                         placeholder="Usuário Github"
                     />
                 </div>
-                    <button className="btn-icon-form">
-                       Encontrar
-                    </button>
+                    <div className="btn-icon-form">
+                        <ButtonIcon text="Encontrar" />
+                    </div>
               
             </div>
             </form>
             
             <div className="form-container-users">
-                <SearchUser  user={user} />
+                <SearchUser  user={user} key={user?.id}/>
             </div>
         </>
 
