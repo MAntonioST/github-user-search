@@ -10,12 +10,18 @@
 
     .img-left {
         position: absolute;
-        width: 284px;
-        height: 280px;
+        max-width: 284px;
+        max-height: 280px;
         margin-left: 30px;
         margin-top: 23px;
-        background: #DEDEDE;
-    
+        overflow: hidden;
+        width: 100vh;
+        height: 100vh;
+        display: flex;
+       
+       
+       
+       
     }
 
     .btn-icon-foto{
