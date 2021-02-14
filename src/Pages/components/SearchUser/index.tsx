@@ -4,24 +4,32 @@ import { User } from '../../../core/types/User';
 import dayjs from 'dayjs';
 import 'dayjs/locale/pt-br';
 import './styles.scss';
+import ImageLoader from '../../../core/components/Loaders/ImageLoader';
+import InfoLoader from '../../../core/components/Loaders/InfoLoader';
 
 type Props = {
     user?: User;
+    isLoading?: boolean;
 }
 dayjs.locale('pt-br');
 
 
 
-const SearchUser = ({ user }: Props) => {
-    console.log(user);
+const SearchUser = ({ user, isLoading }: Props) => {
     return (
         <div className="users-container-main">
-            <div className="img-left">
-                <img src={user?.avatar_url} alt={user?.name} />
-            </div>
-            <div className="btn-icon-foto">
-                <ButtonIcon text="Ver perfil" />
-            </div>
+            {isLoading ? < ImageLoader /> : (
+                <>
+                    <div className="img-left">
+                        <img src={user?.avatar_url} alt={user?.name} />
+                    </div>
+                    <div className="btn-icon-foto">
+                        <ButtonIcon text="Ver perfil" />
+                    </div>
+                </>
+            )}
+           {isLoading ? < InfoLoader /> : (
+            <>
             <div className="information-left">
                 <div className="info-in-left">
                     Repositórios públicos: {user?.public_repos}
@@ -37,10 +45,11 @@ const SearchUser = ({ user }: Props) => {
                     Seguindo: {user?.following}
                 </div>
             </div>
+            
             <div className="information-container">
                 <div className="info-title">
                     Informações
-            </div>
+                </div>
                 <div className="input-form-in">
                     <div className="data-info">
                         <div className="data-user">
@@ -49,28 +58,31 @@ const SearchUser = ({ user }: Props) => {
                     </div>
                 </div>
                 <div className="input-form-in-1">
-                <div className="data-info">
+                    <div className="data-info">
                         <div className="data-user">
-                        Website/Blog:  {user?.blog}
+                            Website/Blog:  {user?.blog}
                         </div>
                     </div>
                 </div>
                 <div className="input-form-in-2">
-                <div className="data-info">
+                    <div className="data-info">
                         <div className="data-user">
-                        Localidade: {user?.location}
+                            Localidade: {user?.location}
                         </div>
                     </div>
                 </div>
                 <div className="input-form-in-3">
-                <div className="data-info">
+                    <div className="data-info">
                         <div className="data-user">
-                        Membro desde: {dayjs(user?.created_at).format('DD/MM/YYYY')} 
+                            Membro desde: {user?.created_at ? dayjs(user?.created_at).format('DD/MM/YYYY') : ""}
                         </div>
                     </div>
                 </div>
             </div>
+            </>
+         )}
         </div>
+        
     );
 }
 

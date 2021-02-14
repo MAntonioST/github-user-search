@@ -8,7 +8,7 @@ import ButtonIcon from '../../../core/components/ButtonIcon';
 
 
 
-type UserState = {
+type UserNameState = {
     login:string;
     
   }
@@ -17,28 +17,33 @@ type UserState = {
 
  const FormContainer = () => {
    
-    const [formData, setFormData] = useState<UserState>({
+    const [userName, setUserName] = useState<UserNameState>({
         login:'',
       });
 
     const [ user, setUser] = useState<User>();
+    const [isLoading, setIsLoading] = useState(false);
      
       const handleOnChange = (event: FormEvent) => {
         const login = event.target.name;
         const value = event.target.value;
-        setFormData(data => ({ ...data, [login]: value }));
+        setUserName(data => ({ ...data, [login]: value }));
+        
     }
   
    
    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const payload = {
-     login:formData.login
+     login:userName.login
     }
+    setIsLoading(true);
     makeRequest({ url: `/users/${payload.login}`})
-       .then(response => setUser(response.data));
+       .then(response => setUser(response.data))
+       .finally(() => setIsLoading(false));
     
-     setFormData({login:''});
+       setUserName({login:''});
  }
      
     return (
@@ -48,11 +53,10 @@ type UserState = {
                 <div className="form-contents-title">
                     Encontre um perfil Github
             </div>
-            
                 <div className="form-inputs">
                     <input
-                       value={formData.login}
-                       name="login"
+                        value={userName.login}
+                        name="login"
                         type="text"
                         onChange={handleOnChange}
                         className="form-control form-inputs-text"
@@ -67,7 +71,7 @@ type UserState = {
             </form>
             
             <div className="form-container-users">
-                <SearchUser  user={user} key={user?.id}/>
+                <SearchUser  user={user} key={user?.id} isLoading={isLoading}/>
             </div>
         </>
 
