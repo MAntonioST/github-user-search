@@ -5,12 +5,12 @@ const InfoLoader = () => (
   <ContentLoader 
     speed={2}
     width={870}
-    height={247}
-    viewBox="0 0 870 247"
+    height={250}
+    viewBox="0 0 870 250"
     backgroundColor="#dedede"
     foregroundColor="#f5f5f5"
   >
-    <rect x="19" y="23" rx="2" ry="2" width="870" height="247" />
+    <rect x="19" y="23" rx="2" ry="2" width="870" height="250" />
   </ContentLoader>
 )
 
