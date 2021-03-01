@@ -38,7 +38,9 @@ const FormContainer = () => {
         const payload = {
             login: userName.login
         }
-        setIsLoading(true);
+        if (payload.login){
+            setIsLoading(true);
+        }
         makeRequest({ url: `/users/${payload.login}` })
             .then(response => setUser(response.data))
             .finally(() => setIsLoading(false));
